@@ -9,15 +9,43 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    
+    @IBOutlet weak var textLabel: UILabel!
+    
+    
+    
+    @IBAction func startActivityIndicator(sender: AnyObject) {
+        
+        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        textLabel.text = "This is used for indicating activity, normally network. Something may be going on that you can't see."
+    }
+    
+    
+    @IBAction func stopActivityIndicator(sender: AnyObject) {
+        
+        activityIndicator.stopAnimating()
+        textLabel.text = ""
+        
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+       
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
 
